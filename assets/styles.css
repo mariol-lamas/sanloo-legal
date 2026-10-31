@@ -1,0 +1,295 @@
+/* Sanloo — hoja de estilos única para todo el sitio legal.
+   Paleta tomada de lib/theme/app_colors.dart de la app, para que el sitio
+   y la app se reconozcan como lo mismo. */
+
+:root {
+  --sand: #F8F4E9;
+  --cream: #F4EFE0;
+  --softbone: #EBE5D3;
+  --charcoal: #3A3A3A;
+  --warmgray: #87876F;
+  --lightgray: #C5C5B0;
+  --coral: #F49990;
+  --sage: #A3C4A0;
+  --darksage: #6B8F6E;
+  --accent: #F9D575;
+
+  --bg: var(--sand);
+  --surface: #FFFFFF;
+  --text: var(--charcoal);
+  --muted: var(--warmgray);
+  --border: #E3DCCA;
+  --link: var(--darksage);
+  --note-bg: #FBF6E6;
+  --note-border: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1E1E1C;
+    --surface: #272724;
+    --text: #EDE8DC;
+    --muted: #A8A894;
+    --border: #3B3B36;
+    --link: #A3C4A0;
+    --note-bg: #2E2A1F;
+    --note-border: #8A7533;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1E1E1C;
+  --surface: #272724;
+  --text: #EDE8DC;
+  --muted: #A8A894;
+  --border: #3B3B36;
+  --link: #A3C4A0;
+  --note-bg: #2E2A1F;
+  --note-border: #8A7533;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Cabecera ──────────────────────────────────────────────── */
+
+header.site {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+header.site .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: baseline;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand span { color: var(--coral); }
+
+nav.site {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-left: auto;
+  font-size: 15px;
+}
+
+nav.site a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+nav.site a:hover,
+nav.site a[aria-current="page"] {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Contenido ─────────────────────────────────────────────── */
+
+main { padding: 40px 0 72px; }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.3;
+  margin: 44px 0 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 28px 0 8px;
+}
+
+p, ul, ol { margin: 0 0 16px; }
+
+ul, ol { padding-left: 24px; }
+
+li { margin-bottom: 6px; }
+
+a { color: var(--link); text-underline-offset: 2px; }
+
+.lede {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.updated {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+:root[data-theme="dark"] code,
+:root:not([data-theme="light"]) code { background: var(--surface); }
+
+/* ── Avisos destacados ─────────────────────────────────────── */
+
+.note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 18px;
+  margin: 0 0 24px;
+}
+
+.note p:last-child { margin-bottom: 0; }
+
+.note strong { display: block; margin-bottom: 4px; }
+
+/* ── Índice ────────────────────────────────────────────────── */
+
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 36px;
+}
+
+.toc h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 0;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.toc ol { margin: 0; padding-left: 20px; font-size: 15.5px; }
+
+/* ── Tablas ────────────────────────────────────────────────── */
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 0 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 460px;
+  font-size: 15.5px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  background: var(--cream);
+  color: var(--text);
+}
+
+:root[data-theme="dark"] th,
+:root:not([data-theme="light"]) th { background: #2F2F2B; }
+
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ── Tarjetas de la portada ────────────────────────────────── */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 32px 0;
+}
+
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--sage);
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+  border: 0;
+  padding: 0;
+}
+
+.card p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ── Pie ───────────────────────────────────────────────────── */
+
+footer.site {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: 28px 0;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+footer.site p { margin: 0 0 6px; }
+
+footer.site a { color: var(--muted); }
